@@ -365,7 +365,7 @@
 	position: relative;
 	height: 500px;
 }
-.star_spec {
+.star_spec ,.recommend{
 	width: 2480px;
 }
 .spec_top {
@@ -377,20 +377,20 @@
 	font-size: 22px;
 	color: #333;
 }
-.star_spec .spec_left_right {
+.star_spec .spec_left_right,.recommend .spec_left_right {
 	width: 100px;
 	height: 20px;
 	margin-left: 1022px;
 	margin-top: 10px;
 }
-.star_spec .spec_left_right a {
+.star_spec .spec_left_right a , .recommend .spec_left_right a{
 	display: block;
 	width: 34px;
 	height: 22px;
 	border: 1px solid #e0e0e0;
 	cursor: pointer;
 }
-.star_spec .spec_left_right img {
+.star_spec .spec_left_right img , .recommend .spec_left_right img {
 	margin: 4px 0 0 12px;
 }
 .star_spec .spec_item_list {
@@ -519,8 +519,12 @@
 .match_list{
 	width: 992px;
 }
-.match_main img{
+.match_main a{
+	display: block;
 	margin-bottom: 14px;
+}
+.match_main a img{
+	display: block;
 }
 .match_list .spec_item{
 	width: 194px;
@@ -544,7 +548,7 @@
 .small_spec1,.small_spec2{
 	height: 143px;
 	width: 234px;
-	margin-bottom: 14px;
+	margin-bottom: 16px;
 	background: #fff;
 	position: relative;
 
@@ -591,6 +595,7 @@
 	right: 40px;
 	top: 45px;
 }
+
 .accessory_main{
 	width: 234px;
 }

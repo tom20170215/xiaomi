@@ -128,6 +128,18 @@ $(function() {
 		$(".match .cur").removeClass("cur");
 		$(this).addClass("cur");
 	});
+
+	$(".accessories .spec_type_nav >li > a").hover(function() {
+		var index = $(this).index();
+		$(".accessories .cur").removeClass("cur");
+		$(this).addClass("cur");
+	});
+	$(".around .spec_type_nav > li > a").hover(function() {
+		var index = $(this).index();
+		$(".around .cur").removeClass("cur");
+		$(this).addClass("cur");
+	});
+
 	//为你推荐单品切换
 	function changeDir(dir) {
 		if (dir === 0) {
