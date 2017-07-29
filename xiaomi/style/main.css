@@ -591,3 +591,90 @@
 	right: 40px;
 	top: 45px;
 }
+.accessory_main{
+	width: 234px;
+}
+.accessory_main a{
+	display: block;
+	margin-bottom: 14px;
+}
+.accessory_main a img{
+	display: block;
+}
+.accessory_list{
+	width: 992px;
+}
+.accessory_list .spec_item{
+	display: block;
+	float: left;
+	width: 194px;
+	height: 232px;
+	padding: 34px 20px;
+	margin:0 0 14px 14px;
+}
+.accessory_list .spec_money{
+	margin-bottom: 10px;
+}
+.accessory_list .small_accessory_spec{
+	background: #F5F5F5;
+	height: 300px;
+	padding: 0;
+}
+.around_main{
+	width: 234px;
+}
+.around_main a{
+	display: block;
+	margin-bottom: 14px;
+}
+.around_main a img{
+	display: block;
+}
+.around_list{
+	width: 992px;
+}
+.around_list .spec_item{
+	float: left;
+	width: 194px;
+	height: 232px;
+	padding: 34px 20px;
+	margin: 0 0 14px 14px;
+	display: block;
+}
+.around_list .spec_img{
+	display: block;
+	cursor: pointer;
+}
+.around_list .spec_img img{
+	width: 150px;
+	height: 150px;
+}
+.around_list .spec_money{
+	margin-bottom: 10px;
+}
+.around_list .small_around_spec{
+	background: #F5F5F5;
+	height: 300px;
+	padding: 0;
+}
+.recommend{
+	position: relative;
+	height: 400px;
+}
+.recommend .spec_left_right{
+	margin-left: 1066px;
+}
+.recommend .recommend_spec_list{
+	position: absolute;
+	left: 0;
+	top:50px;
+	padding-bottom: 20px;
+}
+#review .review_spec li{
+	float: left;
+	background: #fff;
+	padding-bottom: 20px;
+	width: 296px;
+	margin-right: 14px;
+	margin-bottom: 20px;
+}
