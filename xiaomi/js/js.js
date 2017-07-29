@@ -122,12 +122,41 @@ $(function() {
 		}
 	});
 
-//导航单品切换
-   $(".spec_type_nav > li > a").hover(function(){
-   	var index = $(this).index();
-   	$(".match .cur").removeClass("cur");
-   	$(this).addClass("cur");
-   });
-
+	//导航单品切换
+	$(".spec_type_nav > li > a").hover(function() {
+		var index = $(this).index();
+		$(".match .cur").removeClass("cur");
+		$(this).addClass("cur");
+	});
+	//为你推荐单品切换
+	function changeDir(dir) {
+		if (dir === 0) {
+			$(".img1 > img").attr("src", "images/icon/left_b_2.png");
+			$(".img2 > img").attr("src", "images/icon/right_b_1.png");
+		} else if (dir === 1) {
+			$(".img1 > img").attr("src", "images/icon/left_b_1.png");
+			$(".img2 > img").attr("src", "images/icon/right_b_1.png");
+		} else {
+			$(".img1 > img").attr("src", "images/icon/left_b_1.png");
+			$(".img2 > img").attr("src", "images/icon/right_b_2.png");
+		}
+	}
+	$(".img1").click(function() {
+		if (dir > 0) {
+			dir--;
+			changeDir(dir);
+			$(".recommend .recommend_spec_list").animate({
+				left: "+=1234px"
+			}, 200);
+		}
+	});
+	$(".img2").click(function() {
+		if (dir < 2) {
+			dir++;
+			changeDir(dir);
+			$(".recommend .recommend_spec_list").animate({
+				left: "-=1234px"
+			}, 200);
+		}
+	});
 });
-
