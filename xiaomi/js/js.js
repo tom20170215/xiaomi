@@ -171,4 +171,98 @@ $(function() {
 			}, 200);
 		}
 	});
+
+
+	//内容单品切换
+	$(".content_spec > li").hover(function() {
+		var This = $(this);
+		$(this).find(".content_left,.content_right").css("display", "block");
+
+		$(this).find(".content_left").hover(function() {
+			$(this).attr("src", "images/icon/content_left_hover.png");
+			var left = This.find(".content_spec_list").position().left;
+			//判断改变鼠标样式
+			if (left / -296 > 0) {
+				$(this).css("cursor", "pointer");
+			} else {
+				$(this).css("cursor", "default");
+			}
+			//点击左移动
+			$(this).unbind("click").click(function() {
+				left = This.find(".content_spec_list").position().left;
+				if (!This.find(".content_spec_list").is(":animated") && left < 0) {
+					This.find(".content_spec_list").animate({
+						left: "+=296px"
+					});
+					//圆圈也要跟着切换
+					This.find(".content_page > li > span").removeClass("active");
+					This.find(".content_page > li:eq(" + (left / -296 - 1) + ") > span").addClass("active");
+				}
+				console.log(left / -296);
+				//当左移动到第一个时，鼠标变成默认
+
+				left = This.find(".content_spec_list").position().left;
+				if (left / -296 > 1) {
+					$(this).css("cursor", "pointer");
+				} else {
+					$(this).css("cursor", "default");
+				}
+				return false;
+			});
+
+		}, function() {
+			$(this).attr("src", "images/icon/content_left.png");
+		});
+		//点击右移动
+		$(this).find(".content_right").hover(function() {
+			$(this).attr("src", "images/icon/content_right_hover.png");
+			var left = This.find(".content_spec_list").position().left;
+			if (left / -296 < 3) {
+				$(this).css("cursor", "pointer");
+			} else {
+				$(this).css("cursor", "default");
+			}
+			$(this).unbind("click").click(function() {
+				left = This.find(".content_spec_list").position().left;
+				if (!This.find(".content_spec_list").is(":animated") && left > -888) {
+					This.find(".content_spec_list").animate({
+						left: "-=296px"
+					});
+					//圆圈也要跟着切换
+					This.find(".content_page > li > span").removeClass("active");
+					This.find(".content_page > li:eq(" + (left / -296 + 1) + ") > span").addClass("active");
+				}
+				console.log(left / -296);
+				//当右移到第四个时，鼠标变成默认
+				left = This.find(".content_spec_list").position().left;
+				if (left / -296 < 2) {
+					$(this).css("cursor", "pointer");
+				} else {
+					$(this).css("cursor", "default");
+				}
+				return false;
+			});
+		}, function() {
+			$(this).attr("src", "images/icon/content_right.png");
+		});
+	}, function() {
+		$(this).find(".content_left,.content_right").css("display", "none");
+	});
+	//内容content栏下方圆圈切换
+	$(".content_page > li >span").hover(function() {
+		$(this).css("cursor","pointer");
+		$(this).click(function() {
+			var root = $(this).parent().parent().parent();
+			var This = $(this);
+			var index = $(this).parent().index();
+			var left = -index * 296;
+			if (!root.find(".content_spec_list").is(":animated")) {
+				root.find(".content_page > li >span").removeClass("active");
+				This.addClass("active");
+				root.find(".content_spec_list").animate({
+					left: "" + left + "px"
+				});
+			}
+		});
+	});
 });
