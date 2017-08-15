@@ -250,7 +250,7 @@ $(function() {
 	});
 	//内容content栏下方圆圈切换
 	$(".content_page > li >span").hover(function() {
-		$(this).css("cursor","pointer");
+		$(this).css("cursor", "pointer");
 		$(this).click(function() {
 			var root = $(this).parent().parent().parent();
 			var This = $(this);
@@ -264,5 +264,59 @@ $(function() {
 				});
 			}
 		});
+	});
+	//导航栏显示隐藏div
+	var isHoverNav = false;
+	var curIndex = -1;
+	var preIndex = -1;
+
+	function changeStateDown(index) {
+		switch (index) {
+			case 0:
+				$(".nav_menu_show1").slideDown(400);
+				break;
+			case 1:
+				$(".nav_menu_show2").slideDown(400);
+				break;
+			case 2:
+				$(".nav_menu_show3").slideDown(400);
+				break;
+			case 3:
+				$(".nav_menu_show4").slideDown(400);
+				break;
+			case 4:
+				$(".nav_menu_show5").slideDown(400);
+				break;
+			case 5:
+				$(".nav_menu_show6").slideDown(400);
+				break;
+		}
+	}
+
+	function changeStateUp(index) {
+		switch (index) {
+			case 0:
+				$(".nav_menu_show1").slideUp(400);
+				break;
+			case 1:
+				$(".nav_menu_show2").slideUp(400);
+				break;
+			case 2:
+				$(".nav_menu_show3").slideUp(400);
+				break;
+			case 3:
+				$(".nav_menu_show4").slideUp(400);
+				break;
+			case 4:
+				$(".nav_menu_show5").slideUp(400);
+				break;
+			case 5:
+				$(".nav_menu_show6").slideUp(400);
+				break;
+		}
+	}
+	$(".nav .nav_list li").mouseover(function() {
+		curIndex = $(this).index();
+		changeStateDown(curIndex);
 	});
 });
