@@ -6,7 +6,7 @@ $(function() {
 		isHover = true;
 		$(".buy_car_img").attr("src", "images/shopcarhover.png");
 		$(".buy_car_spec").animate({
-			heigh: 100
+			height: 100
 		}, 200, function() {
 			$(".buy_car p").html("购物车中还没有商品，赶紧选购吧！");
 		});
@@ -80,11 +80,26 @@ $(function() {
 		$(this).addClass("cur_move");
 		var index = $(this).parent().index();
 		$(".category_hot_list > li").css("display", "none");
-		console.log(index);
 		$(".category_hot_list > li:eq(" + index + ")").css("display", "block");
 	});
 
-
+ 	cateIndex = 0;
+	function categoryMove(){
+		if (cateIndex > 4) {
+			cateIndex = 0;
+		}
+		$(".category_move span").removeClass("cur_move");
+		$(".category_move span:eq("+ cateIndex +")").addClass("cur_move");
+		$(".category_hot_list > li").css("display", "none");
+		$(".category_hot_list > li:eq(" + cateIndex + ")").css("display", "block");
+		cateIndex++;
+		var test = setTimeout(function(){
+		categoryMove();
+	},3000);
+	}
+	categoryMove();
+	
+	
 	//category栏的category_item_box显示隐藏
 	$(".category_item").hover(function() {
 		var index = $(this).index();
@@ -269,6 +284,8 @@ $(function() {
 	var isHoverNav = false;
 	var curIndex = -1;
 	var preIndex = -1;
+	var timer2 = null;
+
 
 	function changeStateDown(index) {
 		switch (index) {
@@ -294,6 +311,7 @@ $(function() {
 	}
 
 	function changeStateUp(index) {
+		var elem = $(".navMenu:eq(" + index + ")");
 		switch (index) {
 			case 0:
 				$(".nav_menu_show1").slideUp(400);
@@ -315,8 +333,15 @@ $(function() {
 				break;
 		}
 	}
-	$(".nav .nav_list li").mouseover(function() {
+	$(".nav .nav_list li").hover(function() {
 		curIndex = $(this).index();
-		changeStateDown(curIndex);
+		$(".navMenu:eq("+ curIndex +")").css("display","block");
+	},function(){
+		$(".navMenu:eq("+ curIndex +")").css("display","none");
+	});
+	$(".navMenu").hover(function(){
+		$(this).css("display","block");
+	},function(){
+		$(this).css("display","none");
 	});
 });
